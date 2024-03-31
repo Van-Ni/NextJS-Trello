@@ -14,6 +14,7 @@ export default authMiddleware({
       if (auth.orgId) {
         path = `/organization/${auth.orgId}`;
       }
+      console.log('🚀 ~ afterAuth ~ path:', path)
       const orgSelection = new URL(path, req.url);
       return NextResponse.redirect(orgSelection);
     }
