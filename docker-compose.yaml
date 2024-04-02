@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: db  
+    image: mysql:8.0  
+    restart: unless-stopped  
+    environment:
+      MYSQL_DATABASE: vnilai  
+      MYSQL_ROOT_PASSWORD: 123321 
+    ports:
+      - '3307:3306'  
+    volumes:
+      - mysqldata:/var/lib/mysql  # Persistent data volume
+
+volumes:
+  mysqldata:
