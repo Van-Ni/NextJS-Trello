@@ -1,12 +1,12 @@
 "use client";
 
-import { useMobileSidebar } from "@/app/hooks/use-sidebar-mobile";
 import { Button } from "@/components/ui/button";
 import { SheetContent, Sheet } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Sidebar } from "./sidebar";
 import { usePathname } from "next/navigation";
+import { useMobileSidebar } from "@/components/hooks/use-sidebar-mobile";
 
 
 export const MobileSidebar = () => {
