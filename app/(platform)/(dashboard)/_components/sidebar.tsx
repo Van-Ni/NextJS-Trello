@@ -27,8 +27,7 @@ export const Sidebar = ({
         isLoaded: isLoadedOrg,
         organization: activeOrganization
     } = useOrganization();
-    console.log('🚀 ~ organization:', activeOrganization)
-    console.log('🚀 ~ isLoaded:', isLoadedOrg)
+    
 
     // retrieve the memberships
     // Aggregate pages in order to render an infinite list
