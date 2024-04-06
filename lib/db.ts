@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-
+//  Use Prisma Client to send queries to your database
 declare global {
     var prisma: PrismaClient | undefined;
 };
