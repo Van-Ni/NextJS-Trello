@@ -4,6 +4,7 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// Datasource
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,6 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Data model
 model Board {
   id            String @id @default(uuid())
   orgId         String
@@ -23,6 +25,40 @@ model Board {
   imageUserName String @db.Text
   imageLinkHTML String @db.Text
 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  lists List[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model List {
+  id    String @id @default(uuid())
+  title String
+  order Int
+
+  boardId String
+  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+
+  cards     Card[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([boardId])
+}
+
+
+model Card {
+  id          String @id @default(uuid())
+  title       String
+  order       Int
+  description String? @db.Text
+
+  listId      String
+  list        List  @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([listId])
 }
