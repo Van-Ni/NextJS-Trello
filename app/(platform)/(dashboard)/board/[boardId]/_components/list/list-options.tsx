@@ -17,6 +17,9 @@ import { Button } from "@/components/ui/button";
 // import { deleteList } from "@/actions/delete-list";
 import { FormSubmit } from "@/components/form/form-submit";
 import { Separator } from "@/components/ui/separator";
+import { useAction } from "@/components/hooks/use-action";
+import { copyList } from "@/actions/copy-list";
+import { deleteList } from "@/actions/delete-list";
 
 interface ListOptionsProps {
   data: List;
@@ -29,38 +32,38 @@ export const ListOptions = ({
 }: ListOptionsProps) => {
   const closeRef = useRef<ElementRef<"button">>(null);
 
-//   const { execute: executeDelete } = useAction(deleteList, {
-//     onSuccess: (data) => {
-//       toast.success(`List "${data.title}" deleted`);
-//       closeRef.current?.click();
-//     },
-//     onError: (error) => {
-//       toast.error(error);
-//     }
-//   });
+  const { execute: executeDelete } = useAction(deleteList, {
+    onSuccess: (data) => {
+      toast.success(`List "${data.title}" deleted`);
+      closeRef.current?.click();
+    },
+    onError: (error) => {
+      toast.error(error);
+    }
+  });
 
-//   const { execute: executeCopy } = useAction(copyList, {
-//     onSuccess: (data) => {
-//       toast.success(`List "${data.title}" copied`);
-//       closeRef.current?.click();
-//     },
-//     onError: (error) => {
-//       toast.error(error);
-//     }
-//   });
+  const { execute: executeCopy } = useAction(copyList, {
+    onSuccess: (data) => {
+      toast.success(`List "${data.title}" copied`);
+      closeRef.current?.click();
+    },
+    onError: (error) => {
+      toast.error(error);
+    }
+  });
 
   const onDelete = (formData: FormData) => {
     const id = formData.get("id") as string;
     const boardId = formData.get("boardId") as string;
 
-    // executeDelete({ id, boardId });
+    executeDelete({ id, boardId });
   };
 
   const onCopy = (formData: FormData) => {
     const id = formData.get("id") as string;
     const boardId = formData.get("boardId") as string;
 
-    // executeCopy({ id, boardId });
+    executeCopy({ id, boardId });
   };
 
   return (
