@@ -62,3 +62,31 @@ model Card {
 
   @@index([listId])
 }
+
+enum ACTION {
+  CREATE
+  UPDATE
+  DELETE
+}
+
+enum ENTITY_TYPE {
+  BOARD
+  LIST
+  CARD
+}
+
+// mô hình để ghi lại các hoạt động được thực hiện trên các đối tượng trong cơ sở dữ liệu.
+model AuditLog {
+  id          String  @id @default(uuid())
+  orgId       String
+  action      ACTION
+  entityId    String
+  entityType  ENTITY_TYPE
+  entityTitle String
+  userId      String
+  userImage   String @db.Text
+  userName    String @db.Text
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime  @updatedAt
+}
