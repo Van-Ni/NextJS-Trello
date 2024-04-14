@@ -28,32 +28,32 @@ export const FormPicker = ({
   const [selectedImageId, setSelectedImageId] = useState(null);
 
   useEffect(() => {
-    setImages(defaultImages);
-    setIsLoading(false);
+    // setImages(defaultImages);
+    // setIsLoading(false);
 
-    // const fetchImages = async () => {
-    //   try {
-    //     const result = await unsplash.photos.getRandom({
-    //       collectionIds: ["317099"],
-    //       count: 9,
-    //     });
+    const fetchImages = async () => {
+      try {
+        const result = await unsplash.photos.getRandom({
+          collectionIds: ["317099"],
+          count: 9,
+        });
 
-    //     if (result && result.response) {
-    //       const newImages = (result.response as Array<Record<string, any>>);
-    //       console.log('🚀 ~ fetchImages ~ newImages:', newImages)
-    //       setImages(newImages);
-    //     } else {
-    //       console.error("Failed to get images from Unsplash");
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //     setImages(defaultImages);
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
+        if (result && result.response) {
+          const newImages = (result.response as Array<Record<string, any>>);
+          console.log('🚀 ~ fetchImages ~ newImages:', newImages)
+          setImages(newImages);
+        } else {
+          console.error("Failed to get images from Unsplash");
+        }
+      } catch (error) {
+        console.log(error);
+        setImages(defaultImages);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    // fetchImages();
+    fetchImages();
   }, []);
 
   if (isLoading) {

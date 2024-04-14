@@ -9,8 +9,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 // import { FormPopover } from "@/components/form/form-popover";
 import { MAX_FREE_BOARDS } from "@/constants/boards";
 import { FormPopover } from "@/components/form/form-popover";
-// import { getAvailableCount } from "@/lib/org-limit";
-// import { checkSubscription } from "@/lib/subscription";
+import { getAvailableCount } from "@/lib/org-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 export const BoardList = async () => {
     const { orgId } = auth();
@@ -28,8 +28,8 @@ export const BoardList = async () => {
         }
     });
 
-    //   const availableCount = await getAvailableCount();
-    const isPro = true;
+    const availableCount = await getAvailableCount();
+    const isPro = await checkSubscription();
 
     return (
         <div className="space-y-4">
@@ -38,14 +38,14 @@ export const BoardList = async () => {
                 Your boards
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <FormPopover sideOffset={10} side="right">
+                <FormPopover sideOffset={10} side="right">
                     <div
                         role="button"
                         className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
                     >
                         <p className="text-sm">Create new board</p>
                         <span className="text-xs">
-                            {isPro ? "Unlimited" : `${MAX_FREE_BOARDS - 1} remaining`}
+                            {isPro ? "Unlimited" : `${MAX_FREE_BOARDS - availableCount} remaining`}
                         </span>
                         <Hint
                             sideOffset={40}
