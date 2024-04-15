@@ -35,7 +35,7 @@ export const FormPopover = ({
   align,
   sideOffset = 0,
 }: FormPopoverProps) => {
-    const proModal = useProModal();
+  const proModal = useProModal();
   const router = useRouter();
   const closeRef = useRef<ElementRef<"button">>(null);
 
@@ -57,7 +57,7 @@ export const FormPopover = ({
     const image = formData.get("image") as string;
 
     console.log('🚀 ~ onSubmit ~ { title, image }:', { title, image })
-    
+
     execute({ title, image });
   }
 
@@ -85,7 +85,7 @@ export const FormPopover = ({
         </PopoverClose>
         <form action={onSubmit} className="space-y-4">
           <div className="space-y-4">
-          <FormPicker
+            <FormPicker
               id="image"
               errors={fieldErrors}
             />
