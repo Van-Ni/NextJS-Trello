@@ -40,7 +40,7 @@ export const Navbar = () => (
                 }}
             />
             <UserButton
-                afterSignOutUrl="/"
+                afterSignOutUrl={`${process.env.NEXT_PUBLIC_APP_URL}`}
                 appearance={{
                     elements: {
                         avatarBox: {

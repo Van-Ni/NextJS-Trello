@@ -36,6 +36,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     });
 
     if (orgSubscription && orgSubscription.stripeCustomerId) {
+      // Tạo một phiên sử dụng Billing Portal của Stripe để người dùng có thể quản lý đăng ký của mình.
       const stripeSession = await stripe.billingPortal.sessions.create({
         customer: orgSubscription.stripeCustomerId,
         return_url: settingsUrl,
@@ -43,6 +44,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
       url = stripeSession.url;
     } else {
+      // Tạo một phiên thanh toán mới sử dụng Checkout của Stripe để người dùng có thể đăng ký cho dịch vụ mới.
+      //https://docs.stripe.com/api/checkout/sessions
       const stripeSession = await stripe.checkout.sessions.create({
         success_url: settingsUrl,
         cancel_url: settingsUrl,
