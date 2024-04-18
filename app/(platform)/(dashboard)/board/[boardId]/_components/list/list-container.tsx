@@ -58,6 +58,7 @@ export const ListContainer = (({
 
     const onDragEnd = (result: any) => {
         const { destination, source, type } = result;
+        console.log('🚀 ~ onDragEnd ~ result:', result)
 
         if (!destination) {
             return;
@@ -114,7 +115,7 @@ export const ListContainer = (({
                 );
 
                 reorderedCards.forEach((card, idx) => {
-                    card.order = idx;
+                    card.order = idx + 1;
                 });
 
                 sourceList.cards = reorderedCards;
@@ -136,12 +137,12 @@ export const ListContainer = (({
                 destList.cards.splice(destination.index, 0, movedCard);
 
                 sourceList.cards.forEach((card, idx) => {
-                    card.order = idx;
+                    card.order = idx + 1;
                 });
 
                 // Update the order for each card in the destination list
                 destList.cards.forEach((card, idx) => {
-                    card.order = idx;
+                    card.order = idx + 1;
                 });
 
                 setOrderedData(newOrderedData);
