@@ -42,6 +42,7 @@ style="width:6.33333in;height:2.66667in" />
   
 And more …
 
+# Start the app
 ```js
 npm install
 npm run dev
