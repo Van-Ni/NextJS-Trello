@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Management Software
+<img src="./media/image1.png" style="width:6.5in;height:2.96875in" />  
 
-## Getting Started
+# Some features:
 
-First, run the development server:
+⚛️ Tech stack: Next.js 14, Server Actions, React, Prisma, Tailwind,
+MySQL
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔐 Authentication & Authorization with Clerk
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📝 Organizations / Workspaces  
+💬 + List/Card creation, rename, delete, drag & drop reorder and copy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🌐 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+⏳ And much more!  
+  
+  
+# Login  
+  
+<img src="./media/image2.png" style="width:6.5in;height:4.31667in" />  
+Sign-up  
+<img src="./media/image3.png" style="width:6.5in;height:4.40208in" />
 
-## Learn More
+# Workspaces  
+<img src="./media/image4.png"
+style="width:6.29167in;height:1.73333in" />
 
-To learn more about Next.js, take a look at the following resources:
+# Board
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img src="./media/image5.png"
+style="width:6.33333in;height:2.41667in" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Card
 
-## Deploy on Vercel
+<img src="./media/image6.png"
+style="width:6.33333in;height:2.66667in" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Activity
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="./media/image7.png" style="width:6.30833in;height:2.325in" />  
+  
+And more …
