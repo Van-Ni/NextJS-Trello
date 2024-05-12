@@ -41,3 +41,8 @@ style="width:6.33333in;height:2.66667in" />
 <img src="./media/image7.png" style="width:6.30833in;height:2.325in" />  
   
 And more …
+
+```js
+npm install
+npm run dev
+```
